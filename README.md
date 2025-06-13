@@ -38,9 +38,7 @@ youtube-summarizer-ollama/
 ├── api.py              # Backend logic for summarizing & translation
 ├── gui.py              # PyQt5 GUI app
 ├── main.py             # Gradio web interface
-├── config.yaml         # (Optional) Configuration file
 ├── requirements.txt    # Dependencies
-├── TEST.py/            # IGNORE
 └── README.md
 
 ````
@@ -49,9 +47,8 @@ youtube-summarizer-ollama/
 
 ## ⚙️ Requirements
 
-- **Python** 3.8+
+- **Python** 3.8+ (3.11.5 Preferred)
 - [Ollama](https://ollama.com/) (installed & running locally)
-- [`yt-dlp`](https://github.com/yt-dlp/yt-dlp) *(optional)*
 - Install dependencies:
 
 ```bash
@@ -65,8 +62,8 @@ pip install -r requirements.txt
 ### 💻 Clone & Setup
 
 ```bash
-git clone https://github.com/Anas-KhanWP/youtube-summarizer-ollama.git
-cd youtube-summarizer-ollama
+git clone https://github.com/Anas-KhanWP/youtube-summarizer.git
+cd youtube-summarizer
 pip install -r requirements.txt
 ```
 
@@ -80,9 +77,9 @@ python gui.py
 
 Features:
 
-* Paste a YouTube URL
-* Choose language and summary type
-* Generate + copy or save summary
+* Paste a YouTube Playlist URL
+* Choose Save Path
+* Generate + And Save Summary in Excel
 
 ---
 
@@ -94,19 +91,6 @@ python main.py
 
 * Launches Gradio interface in browser
 * Clean interface for pasting video links and selecting options
-
----
-
-## ⚙️ Optional: Configuration
-
-Create/edit `config.yaml` to customize defaults:
-
-```yaml
-model: llama3
-language: en
-summary_style: podcast
-chunk_size: 1000
-```
 
 ---
 
