@@ -1,0 +1,26 @@
+[tool.poetry]
+name = "youtube-summarizer-llama3"
+version = "0.1.0"
+description = ""
+authors = ["Pisek <psk.light@gmail.com>"]
+readme = "README.md"
+package-mode = false
+
+[tool.poetry.dependencies]
+python = ">=3.12,<3.14"
+youtube-transcript-api = "^0.6.3"
+transformers = "^4.47.0"
+torch = "^2.5.1"
+torchvision = "^0.20.1"
+torchaudio = "^2.5.1"
+langchain-core = "^0.3.28"
+langchain-openai = "^0.2.14"
+langchain-ollama = "^0.2.2"
+langchain = "^0.3.13"
+pandas = "^2.2.3"
+jupyter = "^1.1.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
