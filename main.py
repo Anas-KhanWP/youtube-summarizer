@@ -25,7 +25,7 @@ SUMMARY:"""
     
 COMBINE_TEMPLATE_TXT = """Combine these summaries of a Drama into a final summary in bullet points ONLY!
 Make Sure its in netflix like plot. 
-Strictly Follow this pattern: Write '- Key Point (index+1): Title: (Title of Key Point): \nSummary: (Summary of the Key Point)' for bullet points and answer only the bullet points.
+Strictly Follow this pattern: Write '- Title: (Title of Key Point): \nSummary: (Summary of the Key Point)' for bullet points and answer only the bullet points.
 Text:
 {text}
 
