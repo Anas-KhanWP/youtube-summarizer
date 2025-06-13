@@ -1,52 +1,58 @@
 # 🎬 YouTube Summarizer (Ollama Edition) 🚀
 
-Generate clear, concise summaries of YouTube videos using Ollama’s powerful LLMs, LangChain, and a sleek Python interface.
+[![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://www.python.org/)
+[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![GUI](https://img.shields.io/badge/Interface-PyQt5%20%26%20Gradio-purple.svg)](https://github.com/Anas-KhanWP/youtube-summarizer-ollama)
+[![Ollama](https://img.shields.io/badge/LLM-Ollama-blue.svg)](https://ollama.com/)
+[![LangChain](https://img.shields.io/badge/Framework-LangChain-orange.svg)](https://www.langchain.com/)
 
-> ✨ Supports both Command Line & GUI (PyQt5)
+Effortlessly generate concise, multilingual summaries of YouTube videos using [Ollama](https://ollama.com)'s cutting-edge LLMs, LangChain, and a sleek PyQt5 GUI or Gradio interface.
 
 ---
 
 ## ✨ Features
 
 - 🎥 **Automatic Transcript Extraction**  
-  Extract subtitles from YouTube videos via `youtube_transcript_api`.
+  Fetches subtitles via `youtube_transcript_api`.
 
 - 🤖 **Ollama‑Powered Summarization**  
-  Uses LangChain and models like `llama3`, `mistral`, etc. from Ollama for natural, structured summaries.
+  Uses LangChain and models like `llama3`, `mistral`, etc.
 
-- 🧠 **Multilingual Translation Support**  
-  Summaries available in English, German, and more using `deep-translator`.
+- 🌐 **Multilingual Output**  
+  Translate summaries into English, German, and more.
 
-- 🪄 **Text Preprocessing**  
-  Cleans HTML, special characters, and applies intelligent text chunking with `RecursiveCharacterTextSplitter`.
+- 🖥️ **Two Interfaces**  
+  - 📟 GUI via **PyQt5**
+  - 🌐 Web App via **Gradio**
 
-- 🖥️ **Dual Interface**  
-  Choose between a CLI experience or a sleek PyQt5 desktop GUI.
+- 🛠️ **Configurable via `config.yaml`**  
+  Set your preferred model, language, chunk size, and summary type.
 
-- 📁 **Export Support**  
-  Save summaries as `.txt` or `.csv` for further use.
+---
+
+## 📂 Project Structure
+
+```
+
+youtube-summarizer-ollama/
+├── api.py              # Backend logic for summarizing & translation
+├── gui.py              # PyQt5 GUI app
+├── main.py             # Gradio web interface
+├── config.yaml         # (Optional) Configuration file
+├── requirements.txt    # Dependencies
+├── TEST.py/            # IGNORE
+└── README.md
+
+````
 
 ---
 
 ## ⚙️ Requirements
 
 - **Python** 3.8+
-- [Ollama](https://ollama.com/) (must be installed & running)
-- [`yt-dlp`](https://github.com/yt-dlp/yt-dlp) or `youtube_transcript_api`
-- `pip install -r requirements.txt`
-
----
-
-## 📦 Dependencies
-
-Key libraries used:
-
-- `langchain`, `langchain_ollama`, `tiktoken`
-- `youtube_transcript_api`
-- `deep-translator`
-- `gradio`, `PyQt5`, `tqdm`, `pandas`
-
-Install all via:
+- [Ollama](https://ollama.com/) (installed & running locally)
+- [`yt-dlp`](https://github.com/yt-dlp/yt-dlp) *(optional)*
+- Install dependencies:
 
 ```bash
 pip install -r requirements.txt
@@ -54,73 +60,61 @@ pip install -r requirements.txt
 
 ---
 
-## 🚀 Quick Start (CLI)
+## 🚀 Quick Start
+
+### 💻 Clone & Setup
 
 ```bash
-git clone https://github.com/yourusername/youtube-summarizer-ollama.git
+git clone https://github.com/Anas-KhanWP/youtube-summarizer-ollama.git
 cd youtube-summarizer-ollama
 pip install -r requirements.txt
-
-# Run CLI tool
-python summarize.py --url "https://www.youtube.com/watch?v=..."
 ```
 
 ---
 
-## 🖥️ Quick Start (GUI)
+## 🖥️ GUI Usage (PyQt5)
 
 ```bash
-python gui_app.py
+python gui.py
 ```
 
 Features:
 
 * Paste a YouTube URL
-* Choose language, model, summary style
-* Click 'Summarize' and view results in real-time
-* Export summaries
+* Choose language and summary type
+* Generate + copy or save summary
 
 ---
 
-## 🛠️ Configuration
-
-Modify `config.yaml` to:
-
-* Select default Ollama model (e.g. `llama3`, `mistral`)
-* Set translation language
-* Adjust chunk size, chain type, or prompt template
-
----
-
-## 📂 Project Structure
-
-```
-youtube-summarizer-ollama/
-├── summarize.py         # CLI entry point
-├── gui_app.py           # PyQt5 GUI app
-├── summarizer.py        # Core logic for transcript & summary
-├── config.yaml          # App configuration
-├── prompts/             # Custom prompt templates
-├── requirements.txt     # Dependencies
-└── README.md
-```
-
----
-
-## ▶️ Usage Options
-
-### CLI
+## 🌐 Web Usage (Gradio)
 
 ```bash
-python summarize.py --url "https://youtube.com/..." --lang de --style podcast --model mistral
+python main.py
 ```
 
-### GUI
+* Launches Gradio interface in browser
+* Clean interface for pasting video links and selecting options
 
-* Select video link
-* Choose summary style (`brief`, `detailed`, `podcast`)
-* Choose output language
-* Click `Summarize`
+---
+
+## ⚙️ Optional: Configuration
+
+Create/edit `config.yaml` to customize defaults:
+
+```yaml
+model: llama3
+language: en
+summary_style: podcast
+chunk_size: 1000
+```
+
+---
+
+## 📦 Key Libraries
+
+* `langchain`, `langchain_ollama`, `tiktoken`
+* `youtube_transcript_api`, `deep-translator`
+* `PyQt5`, `gradio`, `pandas`, `tqdm`
 
 ---
 
@@ -137,26 +131,13 @@ This project is licensed under the [MIT License](LICENSE).
 * [yt-dlp](https://github.com/yt-dlp/yt-dlp)
 * [YouTube Transcript API](https://pypi.org/project/youtube-transcript-api/)
 * [Deep Translator](https://github.com/nidhaloff/deep-translator)
+* [Gradio](https://www.gradio.app/)
+* [PyQt5](https://pypi.org/project/PyQt5/)
 
 ---
 
-## 💡 Author
+## 👤 Author
 
 Made with ❤️ by [Anas Khan](https://github.com/Anas-KhanWP)
 
 ---
-
-## 🔗 Related Projects
-
-* [LangChain Docs](https://docs.langchain.com/)
-* [Ollama CLI](https://ollama.com/library)
-
-```
-
----
-
-Let me know if you'd like:
-- A **version with badges**
-- A **light/dark screenshot section**
-- **GIF demo** support
-- Or I can **auto-generate this README and commit it to your repo** via PR format.
